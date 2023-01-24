@@ -40,12 +40,12 @@ function renderTodos(todos) {
         if(item.completed == true) {
             li.classList.add('checked');
         }
-        
+
         li.innerHTML = `
         <input type="checkbox" class="checkbox" ${checked}>
         ${item.name}
         <button class="delete-button">X</button>
-        `;
+       `;
 
         todoItemsList.append(li);
     });
@@ -87,7 +87,10 @@ function deleteTodo(id) {
 getFormLocalStorage();
 
 todoItemsList.addEventListener('click', function(event) {
-    if(event.target.type === '(checkbox') {
+    if(event.target.type === 'checkbox') {
         toggle(event.target.parentElement.getAttribute('data-key'));
+    }
+    if(event.target.classList.contains('delete-button')) {
+        deleteTodo(event.target.parentElement.getAttribute('data-key'));
     }
 });
