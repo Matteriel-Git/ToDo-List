@@ -4,6 +4,7 @@ const todoItemsList = document.querySelector('.todo-items');
 
 let todos = [];
 
+
 todoForm.addEventListener('submit',
 function(event) {
     event.preventDefault();
